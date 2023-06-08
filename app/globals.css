@@ -8,7 +8,14 @@
   --background-end: #597997;
 }
 
+html {
+  height: -webkit-fill-available;
+}
+
 body {
+  min-height: 100vh;
+  /*mobile viewport bug */
+  min-height: -webkit-fill-available;
   color: #ffffff;
   background: linear-gradient(to bottom, transparent, var(--background-end))
     var(--background-start);
