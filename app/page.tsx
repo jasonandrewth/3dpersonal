@@ -2,6 +2,7 @@
 
 import { AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 import Nav from "./components/shared/Nav";
 import Modal from "./components/shared/Modal";
