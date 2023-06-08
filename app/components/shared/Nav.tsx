@@ -22,19 +22,19 @@ const Nav = () => {
   return (
     <>
       <ButtonCTA
-        classes="fixed top-6 left-6 lg:top-10 left-10 2xl:top-20 2xl:left-20 z-50"
+        classes="fixed top-4 left-4 lg:top-10 left-10 2xl:top-20 2xl:left-20 z-50"
         onClick={(e) => {
           onClick(e, "info");
         }}
       >
         info
       </ButtonCTA>
-      <ButtonCTA classes="fixed top-6 right-6 lg:top-10 lg:right-10 2xl:top-20 2xl:right-20 z-50">
+      <ButtonCTA classes="fixed top-4 right-4 lg:top-10 lg:right-10 2xl:top-20 2xl:right-20 z-50">
         contact
       </ButtonCTA>
 
       <ButtonCTA
-        classes="fixed bottom-6 left-6 lg:bottom-6 lg:left-6 2xl:bottom-20 2xl:left-20 z-50"
+        classes="fixed bottom-4 left-4 lg:bottom-6 lg:left-6 2xl:bottom-20 2xl:left-20 z-50"
         onClick={(e) => {
           onClick(e, "work");
         }}
@@ -42,7 +42,7 @@ const Nav = () => {
         work
       </ButtonCTA>
       <ButtonCTA
-        classes="fixed bottom-6 right-6 lg:bottom-10 lg:right-10  2xl:bottom-20 2xl:right-20 z-50"
+        classes="fixed bottom-4 right-4 lg:bottom-10 lg:right-10  2xl:bottom-20 2xl:right-20 z-50"
         onClick={(e) => {
           onClick(e, "lab");
         }}
