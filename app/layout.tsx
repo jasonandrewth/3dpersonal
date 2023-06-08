@@ -42,7 +42,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${eduFavorit.className} min-h-screen`}>
+      <body className={`${eduFavorit.className}`}>
         <ManagedUIContext>
           <CanvasWrapper>
             <Experience />

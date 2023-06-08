@@ -16,6 +16,7 @@ body {
   min-height: 100vh;
   /*mobile viewport bug */
   min-height: -webkit-fill-available;
+  overflow-y: hidden;
   color: #ffffff;
   background: linear-gradient(to bottom, transparent, var(--background-end))
     var(--background-start);
