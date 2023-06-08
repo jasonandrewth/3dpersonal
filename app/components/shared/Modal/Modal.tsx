@@ -37,12 +37,18 @@ const Modal = ({ children }: PropsWithChildren) => {
       <Backdrop onClick={() => closeModal()}>
         <motion.div
           onClick={(e) => e.stopPropagation()}
-          className="z-20 w-[calc(100vw-80px)] md:w-[calc(100vw-200px)] lg:w-[calc(100vw-320px)] h-[calc(80vh-224px)]  lg:h-[calc(100vh-224px)] max-w-5xl rounded-lg border-2 border-white m-auto overflow-scroll flex flex-col items-center"
+          className="relative cursor-default z-20 w-[calc(100vw-80px)] md:w-[calc(100vw-200px)] lg:w-[calc(100vw-320px)] h-[calc(80vh-224px)]  lg:h-[calc(100vh-224px)] max-w-5xl rounded-lg border-2 border-white m-auto overflow-scroll flex flex-col"
           variants={dropIn}
           initial="hidden"
           animate="visible"
           exit="exit"
         >
+          <button
+            className="absolute cursor-pointer top-4 right-4 uppercase"
+            onClick={() => closeModal()}
+          >
+            close
+          </button>
           {/* <h1>{modalState}</h1> */}
           {children}
         </motion.div>

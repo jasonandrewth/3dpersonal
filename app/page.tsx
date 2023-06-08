@@ -6,6 +6,9 @@ import { useEffect, useState } from "react";
 import Nav from "./components/shared/Nav";
 import Modal from "./components/shared/Modal";
 
+//Content
+import { Info, Lab, Work } from "./components/shared/Modal/Content";
+
 //Context
 import { useUI } from "./Context/store";
 
@@ -15,13 +18,13 @@ export default function Home() {
   const modalContent = () => {
     switch (modalState) {
       case "info": {
-        return <h1>"Info"</h1>;
+        return <Info />;
       }
       case "work": {
-        return <h1>"Work"</h1>;
+        return <Work />;
       }
       case "lab": {
-        return <h1>"Lab"</h1>;
+        return <Lab />;
       }
     }
   };
@@ -40,7 +43,11 @@ export default function Home() {
       onExitComplete={() => null}
     >
       <Nav />
-      {displayModal && <Modal>{modalContent()}</Modal>}
+      {displayModal && (
+        <Modal>
+          <div className="mt-8 px-4 mx-auto">{modalContent()}</div>
+        </Modal>
+      )}
     </AnimatePresence>
   );
 }
