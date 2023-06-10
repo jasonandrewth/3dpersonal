@@ -6,6 +6,9 @@ import { MutableRefObject, PropsWithChildren, Suspense, useRef } from "react";
 import { OrbitControls } from "@react-three/drei";
 import { motion } from "framer-motion-3d";
 
+//Model
+import { Model } from "./Object";
+
 export const CanvasWrapper = ({ children }: PropsWithChildren) => {
   return (
     <div className="fixed top-0 left-0 w-screen h-screen">
@@ -26,13 +29,18 @@ export const CanvasWrapper = ({ children }: PropsWithChildren) => {
 
 const Experience = () => {
   const cubeRef = useRef<MutableRefObject<THREE.Mesh>>();
+  const modelRef = useRef<any>();
   const { displayModal, modalState, closeModal } = useUI();
 
   useFrame((state, delta) => {
     const elapsedTime = state.clock.elapsedTime;
 
     //@ts-ignore
-    state.camera.lookAt(cubeRef.current!.position);
+    modelRef.current!.rotation.y =
+      Math.PI * (Math.sin(elapsedTime * 0.25) + 1) * 0.5;
+
+    //@ts-ignore
+    state.camera.lookAt(modelRef.current!.position);
 
     // cubeRef.current.rotation.x += delta;
     // groupRef.current.rotation.y += delta * 0.125
@@ -49,12 +57,8 @@ const Experience = () => {
       />
       <ambientLight intensity={0.5} />
 
-      <motion.mesh
-        //@ts-ignore
-        ref={cubeRef}
-        castShadow
-        // rotation-y={Math.PI * 0.25}
-        whileHover={{ rotateY: Math.PI * 0.25 }}
+      <motion.group
+        ref={modelRef}
         animate={{
           rotateY: displayModal ? Math.PI * 0.25 : 0,
           z: displayModal ? 2 : 0,
@@ -66,14 +70,8 @@ const Experience = () => {
           },
         }}
       >
-        <boxGeometry />
-        <motion.meshStandardMaterial
-          animate={{
-            color: displayModal ? "green" : "red",
-            transition: { duration: 4 },
-          }}
-        />
-      </motion.mesh>
+        <Model scale={3} />
+      </motion.group>
     </>
   );
 };
