@@ -8,7 +8,7 @@ import { motion } from "framer-motion-3d";
 
 export const CanvasWrapper = ({ children }: PropsWithChildren) => {
   return (
-    <div className="w-screen h-screen">
+    <div className="fixed top-0 left-0 w-screen h-screen">
       <Canvas
         className="h-screen w-screen"
         camera={{

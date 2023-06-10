@@ -6,18 +6,21 @@
   --foreground-rgb: 0, 0, 0;
   --background-start: #cccccc;
   --background-end: #597997;
-}
-
-html {
-  height: -webkit-fill-available;
+  --app-height: 100%;
 }
 
 body {
   min-height: 100vh;
+
   /*mobile viewport bug */
-  min-height: -webkit-fill-available;
-  overflow-y: hidden;
+  /* min-height: -webkit-fill-available; */
+  overflow: hidden;
   color: #ffffff;
   background: linear-gradient(to bottom, transparent, var(--background-end))
     var(--background-start);
+}
+
+.swiper-wrapper {
+  display: flex !important;
+  align-items: center !important;
 }

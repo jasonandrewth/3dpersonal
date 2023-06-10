@@ -46,7 +46,9 @@ export default function Home() {
       <Nav />
       {displayModal && (
         <Modal>
-          <div className="mt-8 px-4 mx-auto">{modalContent()}</div>
+          <div className="relative w-full h-full mt-8 mx-auto">
+            {modalContent()}
+          </div>
         </Modal>
       )}
     </AnimatePresence>

@@ -47,7 +47,7 @@ export default function RootLayout({
           <CanvasWrapper>
             <Experience />
           </CanvasWrapper>
-          <main>{children}</main>
+          {children}
         </ManagedUIContext>
       </body>
     </html>
