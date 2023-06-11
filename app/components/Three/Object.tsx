@@ -73,11 +73,7 @@ export function Model(props: { tex: VideoTexture | undefined; scale: number }) {
   return (
     <>
       <group scale={props.scale} dispose={null}>
-        <mesh
-          castShadow
-          geometry={nodes.cumberlandsche_abstract.geometry}
-          rotation-x={Math.PI}
-        >
+        <mesh castShadow geometry={nodes.Knöppi.geometry} rotation-x={Math.PI}>
           <meshLambertMaterial
             // color={ballMaterial.color}
             // clearcoat={ballMaterial.clearcoat}
