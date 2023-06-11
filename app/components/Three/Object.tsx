@@ -20,12 +20,12 @@ export function Model(props: any) {
   return (
     <group {...props} dispose={null}>
       <mesh castShadow geometry={nodes.cumberlandsche_abstract.geometry}>
-        <meshPhongMaterial
-          color={0x0543e4}
-          specular={0xffffff}
-          combine={THREE.MultiplyOperation}
-          shininess={50}
-          reflectivity={1}
+        <meshPhysicalMaterial
+          color={ballMaterial.color}
+          clearcoat={ballMaterial.clearcoat}
+          clearcoatRoughness={ballMaterial.cleacoatRoughness}
+          roughness={ballMaterial.roughness}
+          metalness={ballMaterial.metalness}
         />
       </mesh>
     </group>
