@@ -93,4 +93,4 @@ export function Model(props: { tex: VideoTexture | undefined; scale: number }) {
   );
 }
 
-useGLTF.preload("./website_3d_cumberlandsche.glb");
+useGLTF.preload("./website_3d_knppi.glb");
