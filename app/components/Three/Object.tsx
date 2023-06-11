@@ -78,13 +78,14 @@ export function Model(props: { tex: VideoTexture | undefined; scale: number }) {
           geometry={nodes.terrex_stone.geometry}
           rotation-x={Math.PI}
         >
-          <meshLambertMaterial
+          <meshStandardMaterial
             // color={ballMaterial.color}
             // clearcoat={ballMaterial.clearcoat}
             // clearcoatRoughness={ballMaterial.cleacoatRoughness}
-            // roughness={0.2}
-            // metalness={1}
-            // reflectivity={1}
+            roughness={0.1}
+            metalness={0.8}
+            //reflectivity={1}
+            envMap={props.tex ?? envMap}
             map={props.tex ?? envMap}
           />
         </mesh>

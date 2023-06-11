@@ -113,7 +113,7 @@ const Experience = ({ tex }: { tex: VideoTexture | undefined }) => {
         intensity={1.5}
         shadow-normalBias={0.04}
       />
-      <ambientLight intensity={0.5} />
+      <ambientLight intensity={0.7} color={0xffffff} />
 
       <motion.group
         ref={modelRef}
