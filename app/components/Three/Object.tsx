@@ -15,13 +15,14 @@ const ballMaterial = {
   color: 0xcccccc,
 };
 
-export function Model(props: any) {
+export function Model(props: { tex: VideoTexture | undefined; scale: number }) {
   //@ts-ignore
   const { nodes, materials } = useGLTF("./website_3d_cumberlandsche.glb");
   const teexture = useLoader(TextureLoader, "/images/ditto.png");
   console.log(teexture);
 
   const [texture, setTexture] = useState<VideoTexture | undefined>();
+  const envMap = useLoader(TextureLoader, "./images/ditto.png");
 
   // useEffect(() => {
   //   if (!videoRef.current) return;
@@ -71,16 +72,20 @@ export function Model(props: any) {
 
   return (
     <>
-      <group dispose={null}>
-        <mesh castShadow geometry={nodes.cumberlandsche_abstract.geometry}>
+      <group scale={props.scale} dispose={null}>
+        <mesh
+          castShadow
+          geometry={nodes.cumberlandsche_abstract.geometry}
+          rotation-x={Math.PI}
+        >
           <meshLambertMaterial
             // color={ballMaterial.color}
             // clearcoat={ballMaterial.clearcoat}
             // clearcoatRoughness={ballMaterial.cleacoatRoughness}
             // roughness={0.2}
             // metalness={1}
-            reflectivity={1}
-            map={props.tex}
+            // reflectivity={1}
+            map={props.tex ?? envMap}
           />
         </mesh>
       </group>
