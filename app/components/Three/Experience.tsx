@@ -77,7 +77,14 @@ const Experience = () => {
           },
         }}
       >
-        <Suspense fallback={<Placeholder scale={new THREE.Vector3(3)} />}>
+        <Suspense
+          fallback={
+            <Placeholder
+              scale={new THREE.Vector3(3)}
+              position={new THREE.Vector3(0)}
+            />
+          }
+        >
           <Model scale={3} />
         </Suspense>
       </motion.group>

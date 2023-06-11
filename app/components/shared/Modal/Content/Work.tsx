@@ -16,10 +16,16 @@ const Work = () => {
   const swiperRef = useRef<any>();
 
   return (
-    <motion.div variants={fade} initial="hidden" animate="visible" exit="exit">
+    <motion.div
+      className="lg:px-4"
+      variants={fade}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+    >
       <h1 className="text-center uppercase font-bold text-lg pb-2">Work</h1>
 
-      <div className="relative flex w-full">
+      <div className="relative flex w-full h-full">
         <Swiper
           // spaceBetween={50}
           className="w-full relative"

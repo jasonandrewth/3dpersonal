@@ -26,10 +26,14 @@ const Nav = () => {
         onClick={(e) => {
           onClick(e, "info");
         }}
+        active={displayModal}
       >
         info
       </ButtonCTA>
-      <ButtonCTA classes="fixed top-4 right-4 lg:top-10 lg:right-10 2xl:top-20 2xl:right-20 z-50">
+      <ButtonCTA
+        classes="fixed top-4 right-4 lg:top-10 lg:right-10 2xl:top-20 2xl:right-20 z-50"
+        active={displayModal}
+      >
         contact
       </ButtonCTA>
 
@@ -38,6 +42,7 @@ const Nav = () => {
         onClick={(e) => {
           onClick(e, "work");
         }}
+        active={displayModal}
       >
         work
       </ButtonCTA>
@@ -46,6 +51,7 @@ const Nav = () => {
         onClick={(e) => {
           onClick(e, "lab");
         }}
+        active={displayModal}
       >
         lab
       </ButtonCTA>
