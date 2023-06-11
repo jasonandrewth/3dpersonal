@@ -17,7 +17,7 @@ const ballMaterial = {
 
 export function Model(props: { tex: VideoTexture | undefined; scale: number }) {
   //@ts-ignore
-  const { nodes, materials } = useGLTF("./website_3d_cumberlandsche.glb");
+  const { nodes, materials } = useGLTF("./website_3d_knppi.glb");
   const teexture = useLoader(TextureLoader, "/images/ditto.png");
   console.log(teexture);
 
