@@ -25,7 +25,7 @@ const Work = () => {
     >
       <h1 className="text-center uppercase font-bold text-lg pb-2">Work</h1>
 
-      <div className="relative flex w-full h-full">
+      <div className=" flex w-full h-full">
         <Swiper
           // spaceBetween={50}
           className="w-full relative"
@@ -46,6 +46,22 @@ const Work = () => {
             <Project />
           </SwiperSlide>
         </Swiper>
+
+        <>
+          <button
+            className="fixed z-50 left-4 top-1/2 -translate-y-1/2"
+            onClick={() => swiperRef?.current?.slidePrev()}
+          >
+            {"<-"}
+          </button>
+
+          <button
+            className="fixed z-50 right-4 top-1/2 -translate-y-1/2"
+            onClick={() => swiperRef?.current?.slideNext()}
+          >
+            {"->"}
+          </button>
+        </>
       </div>
     </motion.div>
   );
