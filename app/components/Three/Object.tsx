@@ -17,7 +17,7 @@ const ballMaterial = {
 
 export function Model(props: { tex: VideoTexture | undefined; scale: number }) {
   //@ts-ignore
-  const { nodes, materials } = useGLTF("./website_3d_knppi.glb");
+  const { nodes, materials } = useGLTF("./website_3d_terrex_stone.glb");
   const teexture = useLoader(TextureLoader, "/images/ditto.png");
   console.log(teexture);
 
@@ -73,7 +73,11 @@ export function Model(props: { tex: VideoTexture | undefined; scale: number }) {
   return (
     <>
       <group scale={props.scale} dispose={null}>
-        <mesh castShadow geometry={nodes.Knöppi.geometry} rotation-x={Math.PI}>
+        <mesh
+          castShadow
+          geometry={nodes.terrex_stone.geometry}
+          rotation-x={Math.PI}
+        >
           <meshLambertMaterial
             // color={ballMaterial.color}
             // clearcoat={ballMaterial.clearcoat}
@@ -89,4 +93,4 @@ export function Model(props: { tex: VideoTexture | undefined; scale: number }) {
   );
 }
 
-useGLTF.preload("./website_3d_knppi.glb");
+useGLTF.preload("./website_3d_terrex_stone.glb");
