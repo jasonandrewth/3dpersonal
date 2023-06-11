@@ -7,6 +7,9 @@ import { MutableRefObject, PropsWithChildren, Suspense, useRef } from "react";
 import { OrbitControls } from "@react-three/drei";
 import { motion } from "framer-motion-3d";
 
+//Hooks
+import useMedia from "@/app/utils/hooks/useMedia";
+
 //Model
 import { Model } from "./Object";
 import Placeholder from "./Placeholder";
@@ -33,6 +36,8 @@ const Experience = () => {
   const cubeRef = useRef<MutableRefObject<THREE.Mesh>>();
   const modelRef = useRef<any>();
   const { displayModal, modalState, closeModal } = useUI();
+  const isDesktop = useMedia();
+
   let rotation = 0;
 
   useFrame((state, delta) => {
@@ -85,7 +90,7 @@ const Experience = () => {
             />
           }
         >
-          <Model scale={3} />
+          <Model scale={isDesktop ? 3 : 2} />
         </Suspense>
       </motion.group>
     </>

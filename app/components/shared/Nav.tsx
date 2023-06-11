@@ -10,7 +10,7 @@ const Nav = () => {
     useUI();
 
   const onClick = (e: React.MouseEvent<HTMLElement>, modalType: string) => {
-    console.log("click");
+    // console.log("click");
     setModalState(modalType);
 
     if (modalState === modalType || !displayModal) {
@@ -26,13 +26,16 @@ const Nav = () => {
         onClick={(e) => {
           onClick(e, "info");
         }}
-        active={displayModal}
+        key="info"
+        active={modalState === "info"}
+        contrast={displayModal}
       >
         info
       </ButtonCTA>
       <ButtonCTA
         classes="fixed top-4 right-4 lg:top-10 lg:right-10 2xl:top-20 2xl:right-20 z-50"
-        active={displayModal}
+        contrast={displayModal}
+        key="contact"
       >
         contact
       </ButtonCTA>
@@ -42,7 +45,9 @@ const Nav = () => {
         onClick={(e) => {
           onClick(e, "work");
         }}
-        active={displayModal}
+        key="work"
+        active={modalState === "work"}
+        contrast={displayModal}
       >
         work
       </ButtonCTA>
@@ -51,7 +56,9 @@ const Nav = () => {
         onClick={(e) => {
           onClick(e, "lab");
         }}
-        active={displayModal}
+        key="lab"
+        active={modalState === "lab"}
+        contrast={displayModal}
       >
         lab
       </ButtonCTA>

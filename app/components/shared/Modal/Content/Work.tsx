@@ -33,19 +33,18 @@ const Work = () => {
           slidesPerView={1}
           loop={false}
         >
-          <SwiperSlide>
+          <SwiperSlide key={1}>
             <Project />
           </SwiperSlide>
-          <SwiperSlide>
+          <SwiperSlide key={2}>
             <Project />
           </SwiperSlide>
-          <SwiperSlide>
+          <SwiperSlide key={3}>
             <Project />
           </SwiperSlide>
-          <SwiperSlide>
+          <SwiperSlide key={4}>
             <Project />
           </SwiperSlide>
-          ...
         </Swiper>
       </div>
     </motion.div>
