@@ -13,7 +13,7 @@ const ButtonCTA: React.FC<ButtonProps> = ({ onClick, children, classes }) => {
       className={
         classes +
         " " +
-        "uppercase text-sm md:text-base rounded-md border-2 font-extrabold border-white py-1 px-4 min-w-[120px] flex items-center justify-center hover:border-[#7838FF] hover:text-[#7838ff] transition-all duration-75"
+        "uppercase text-sm md:text-base rounded-md border-2 font-extrabold border-black py-1 px-4 min-w-[120px] flex items-center justify-center hover:border-myblue hover:text-myblue transition-all duration-300"
       }
       onClick={onClick}
     >

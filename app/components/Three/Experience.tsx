@@ -1,4 +1,5 @@
 "use client";
+import * as THREE from "three";
 
 import { useUI } from "@/app/Context/store";
 import { Canvas, useFrame } from "@react-three/fiber";
@@ -8,6 +9,7 @@ import { motion } from "framer-motion-3d";
 
 //Model
 import { Model } from "./Object";
+import Placeholder from "./Placeholder";
 
 export const CanvasWrapper = ({ children }: PropsWithChildren) => {
   return (
@@ -31,13 +33,18 @@ const Experience = () => {
   const cubeRef = useRef<MutableRefObject<THREE.Mesh>>();
   const modelRef = useRef<any>();
   const { displayModal, modalState, closeModal } = useUI();
+  let rotation = 0;
 
   useFrame((state, delta) => {
     const elapsedTime = state.clock.elapsedTime;
 
-    //@ts-ignore
-    modelRef.current!.rotation.y =
-      Math.PI * (Math.sin(elapsedTime * 0.25) + 1) * 0.5;
+    rotation = modelRef.current!.rotation.y;
+    rotation += delta * 0.25;
+
+    if (!displayModal) {
+      //@ts-ignore
+      modelRef.current!.rotation.y = rotation;
+    }
 
     //@ts-ignore
     state.camera.lookAt(modelRef.current!.position);
@@ -60,7 +67,7 @@ const Experience = () => {
       <motion.group
         ref={modelRef}
         animate={{
-          rotateY: displayModal ? Math.PI * 0.25 : 0,
+          // rotateY: displayModal ? Math.PI * 0.25 : 0,
           z: displayModal ? 2 : 0,
           transition: {
             duration: 0.5,
@@ -70,7 +77,9 @@ const Experience = () => {
           },
         }}
       >
-        <Model scale={3} />
+        <Suspense fallback={<Placeholder scale={new THREE.Vector3(3)} />}>
+          <Model scale={3} />
+        </Suspense>
       </motion.group>
     </>
   );

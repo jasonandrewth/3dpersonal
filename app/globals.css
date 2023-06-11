@@ -4,7 +4,7 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start: #cccccc;
+  --background-start: #ffffff;
   --background-end: #597997;
   --app-height: 100%;
 }
@@ -15,9 +15,9 @@ body {
   /*mobile viewport bug */
   /* min-height: -webkit-fill-available; */
   overflow: hidden;
-  color: #ffffff;
-  background: linear-gradient(to bottom, transparent, var(--background-end))
-    var(--background-start);
+  color: #000000;
+  /* background: linear-gradient(to bottom, transparent, var(--background-end))
+    var(--background-start); */
 }
 
 .swiper-wrapper {

@@ -21,7 +21,7 @@ export function Model(props: any) {
     <group {...props} dispose={null}>
       <mesh castShadow geometry={nodes.cumberlandsche_abstract.geometry}>
         <meshPhongMaterial
-          color={0x0000dd}
+          color={0x0543e4}
           specular={0xffffff}
           combine={THREE.MultiplyOperation}
           shininess={50}
