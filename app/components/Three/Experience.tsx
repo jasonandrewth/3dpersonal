@@ -3,7 +3,15 @@ import * as THREE from "three";
 
 import { useUI } from "@/app/Context/store";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { MutableRefObject, PropsWithChildren, Suspense, useRef } from "react";
+import { TextureLoader, VideoTexture, LinearEncoding } from "three";
+import {
+  MutableRefObject,
+  PropsWithChildren,
+  Suspense,
+  useRef,
+  useState,
+  useEffect,
+} from "react";
 import { OrbitControls } from "@react-three/drei";
 import { motion } from "framer-motion-3d";
 
@@ -15,6 +23,43 @@ import { Model } from "./Object";
 import Placeholder from "./Placeholder";
 
 export const CanvasWrapper = ({ children }: PropsWithChildren) => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [texture, setTexture] = useState<VideoTexture | undefined>();
+
+  useEffect(() => {
+    if (!videoRef.current) return;
+
+    const initWebcam = async () => {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({
+          video: true,
+        });
+        if (videoRef.current) {
+          videoRef.current.srcObject = stream;
+          videoRef.current.play();
+
+          const videoTexture = new VideoTexture(videoRef.current);
+          videoTexture.encoding = LinearEncoding;
+          setTexture(videoTexture);
+        }
+      } catch (error) {
+        console.error("Error accessing webcam:", error);
+      }
+    };
+
+    initWebcam();
+
+    return () => {
+      if (videoRef.current) {
+        const stream = videoRef.current.srcObject as MediaStream;
+        if (stream) {
+          const tracks = stream.getTracks();
+          tracks.forEach((track) => track.stop());
+        }
+      }
+    };
+  }, []);
+
   return (
     <div className="fixed top-0 left-0 w-screen h-screen">
       <Canvas
@@ -26,13 +71,14 @@ export const CanvasWrapper = ({ children }: PropsWithChildren) => {
           position: [0, 3, 6],
         }}
       >
-        {children}
+        <Experience tex={texture} />
       </Canvas>
+      <video ref={videoRef} style={{ display: "none" }} />
     </div>
   );
 };
 
-const Experience = () => {
+const Experience = ({ tex }: { tex: VideoTexture | undefined }) => {
   const cubeRef = useRef<MutableRefObject<THREE.Mesh>>();
   const modelRef = useRef<any>();
   const { displayModal, modalState, closeModal } = useUI();
@@ -90,7 +136,7 @@ const Experience = () => {
             />
           }
         >
-          <Model scale={isDesktop ? 3 : 2} />
+          <Model scale={isDesktop ? 3 : 2} tex={tex} />
         </Suspense>
       </motion.group>
     </>

@@ -44,9 +44,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${eduFavorit.className}`}>
         <ManagedUIContext>
-          <CanvasWrapper>
-            <Experience />
-          </CanvasWrapper>
+          <CanvasWrapper>{/* <Experience /> */}</CanvasWrapper>
           {children}
         </ManagedUIContext>
       </body>
