@@ -26,7 +26,9 @@ const Info = () => {
       exit="exit"
       className="px-4"
     >
-      <h1 className="text-center uppercase font-bold text-lg pb-2">info</h1>
+      <h1 className="text-center text-red-500 uppercase font-bold text-lg pb-2">
+        info
+      </h1>
 
       <div className="max-w-4xl mx-auto">
         <p>

@@ -40,7 +40,9 @@ const Work = () => {
       animate="visible"
       exit="exit"
     >
-      <h1 className="text-center uppercase font-bold text-lg pb-2">Work</h1>
+      <h1 className="text-red-500 text-center uppercase font-bold text-lg pb-2">
+        Work
+      </h1>
 
       <div className=" flex w-full h-full">
         <Swiper
