@@ -23,7 +23,7 @@ const ButtonCTA: React.FC<ButtonProps> = ({
         classes +
         " " +
         clsx(
-          "uppercase text-sm md:text-base rounded-md border-2 font-extrabold border-black py-1 px-4 min-w-[120px] flex items-center justify-center hover:border-red-500 hover:text-red-500 transition-all duration-300",
+          "uppercase text-sm md:text-base rounded-md border-2 font-extrabold border-black py-1 px-4 min-w-[120px] flex items-center justify-center hover:border-red-500 hover:text-red-500 transition-all duration-200",
           buttonContrast && !active && "border-white text-white",
           buttonActive && "border-p border-red-500 text-red-500"
         )

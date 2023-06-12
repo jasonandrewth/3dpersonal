@@ -32,9 +32,9 @@ const Info = () => {
 
       <div className="max-w-4xl mx-auto">
         <p>
-          Jason Thompson is a developer and designer focusing on future-oriented
-          web experiences with the aim to create solutions with a strong
-          emphasis on visual identity.
+          Jason Thompson is a developer and designer based in Berlin. They
+          create future-oriented web experiences with a strong emphasis on
+          visual identity.
         </p>
 
         <h2 className="mt-4 mb-4 font-medium">Tech I Like To Use:</h2>

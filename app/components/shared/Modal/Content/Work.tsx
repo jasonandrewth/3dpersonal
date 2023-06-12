@@ -19,13 +19,14 @@ const projects = [
     image: "/images/ditto.png",
     description:
       "Headless E-Commerce and Community platform for Ditto Nation. Included developing and  deploying a custom Node.js server to update the website with live data from the clients Discord.",
+    activeLink: "https://www.ditto-nation.com/",
   },
   {
     image: "/images/little-portland.png",
     title: "Little Portland",
     description:
       "Landing Page for a venue, with interactive custom svg animations and a 3D scene.",
-    link: "https://www.little-portland.com/",
+    activeLink: "https://www.little-portland.com/",
   },
 ];
 
@@ -40,9 +41,7 @@ const Work = () => {
       animate="visible"
       exit="exit"
     >
-      <h1 className="text-red-500 text-center uppercase font-bold text-lg pb-2">
-        Work
-      </h1>
+      <h1 className=" text-center uppercase font-bold text-lg pb-2">Work</h1>
 
       <div className=" flex w-full h-full">
         <Swiper
@@ -58,6 +57,7 @@ const Work = () => {
                 title={project.title}
                 imageUrl={project.image}
                 description={project.description}
+                activeLink={project.activeLink}
               />
             </SwiperSlide>
           ))}
