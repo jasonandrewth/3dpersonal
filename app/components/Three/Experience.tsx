@@ -33,6 +33,7 @@ export const CanvasWrapper = ({ children }: PropsWithChildren) => {
       try {
         const stream = await navigator.mediaDevices.getUserMedia({
           video: true,
+          audio: false,
         });
         if (videoRef.current) {
           videoRef.current.srcObject = stream;
@@ -95,6 +96,10 @@ const Experience = ({ tex }: { tex: VideoTexture | undefined }) => {
     if (!displayModal) {
       //@ts-ignore
       modelRef.current!.rotation.y = rotation;
+    }
+
+    if (tex) {
+      tex.needsUpdate = true;
     }
 
     //@ts-ignore
