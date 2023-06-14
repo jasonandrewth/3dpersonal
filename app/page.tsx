@@ -44,13 +44,7 @@ export default function Home() {
       onExitComplete={() => null}
     >
       <Nav />
-      {displayModal && (
-        <Modal>
-          <div className="relative w-full h-full mt-8 mx-auto">
-            {modalContent()}
-          </div>
-        </Modal>
-      )}
+      {displayModal && <Modal>{modalContent()}</Modal>}
     </AnimatePresence>
   );
 }

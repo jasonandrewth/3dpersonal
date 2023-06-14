@@ -31,11 +31,13 @@ const projects = [
 ];
 
 const Work = () => {
+  const [isHovered, setIsHovered] = useState(false);
+
   const swiperRef = useRef<any>();
 
   return (
     <motion.div
-      className="lg:px-4"
+      // className="lg:px-4"
       variants={fade}
       initial="hidden"
       animate="visible"
@@ -43,41 +45,48 @@ const Work = () => {
     >
       <h1 className=" text-center uppercase font-bold text-lg pb-2">Work</h1>
 
-      <div className=" flex w-full h-full">
+      <div
+        className="relative lg:absolute top-0 left-0 h-full w-full flex"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
         <Swiper
           // spaceBetween={50}
-          className="w-full relative"
+          className="w-full h-full relative"
           onBeforeInit={(swiper) => (swiperRef.current = swiper)}
           slidesPerView={1}
           loop={false}
         >
           {projects.map((project, idx) => (
-            <SwiperSlide key={idx}>
+            <SwiperSlide key={idx} className="w-full h-full">
               <Project
                 title={project.title}
                 imageUrl={project.image}
                 description={project.description}
                 activeLink={project.activeLink}
+                hovered={isHovered}
               />
             </SwiperSlide>
           ))}
         </Swiper>
 
-        <>
-          <button
-            className="fixed z-50 left-4 bottom-0 -translate-y-1/2"
-            onClick={() => swiperRef?.current?.slidePrev()}
-          >
-            {"<-"}
-          </button>
+        {isHovered && (
+          <>
+            <button
+              className="fixed z-50 left-4 bottom-1/2 -translate-y-1/2"
+              onClick={() => swiperRef?.current?.slidePrev()}
+            >
+              {"<-"}
+            </button>
 
-          <button
-            className="fixed z-50 right-4 bottom-0 -translate-y-1/2"
-            onClick={() => swiperRef?.current?.slideNext()}
-          >
-            {"->"}
-          </button>
-        </>
+            <button
+              className="fixed z-50 right-4 bottom-1/2 -translate-y-1/2 "
+              onClick={() => swiperRef?.current?.slideNext()}
+            >
+              {"->"}
+            </button>
+          </>
+        )}
       </div>
     </motion.div>
   );

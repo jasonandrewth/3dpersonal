@@ -24,7 +24,7 @@ const Info = () => {
       initial="hidden"
       animate="visible"
       exit="exit"
-      className="px-4"
+      className="relative w-full h-full mt-8 mx-auto px-4"
     >
       <h1 className="text-center uppercase font-bold text-lg pb-2">info</h1>
 
