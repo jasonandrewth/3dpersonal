@@ -19,7 +19,8 @@ import { motion } from "framer-motion-3d";
 import useMedia from "@/app/utils/hooks/useMedia";
 
 //Model
-import { Model } from "./Object";
+import { Model as Object } from "./Object";
+import { Model } from "./Logo";
 import Placeholder from "./Placeholder";
 
 export const CanvasWrapper = ({ children }: PropsWithChildren) => {
@@ -141,7 +142,7 @@ const Experience = ({ tex }: { tex: VideoTexture | undefined }) => {
             />
           }
         >
-          <Model scale={isDesktop ? 3 : 2} tex={tex} />
+          <Model scale={isDesktop ? 1.5 : 0.9} tex={tex} />
         </Suspense>
       </motion.group>
     </>
