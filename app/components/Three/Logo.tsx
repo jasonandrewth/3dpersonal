@@ -30,7 +30,7 @@ export function Model(props: { tex: VideoTexture | undefined; scale: number }) {
           color={0xef4444}
           //   clearcoat={ballMaterial.clearcoat}
           //   clearcoatRoughness={ballMaterial.cleacoatRoughness}
-          roughness={0.45}
+          roughness={0.65}
           metalness={1.0}
           side={THREE.DoubleSide}
           //reflectivity={1}

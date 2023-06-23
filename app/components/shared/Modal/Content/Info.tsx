@@ -1,5 +1,8 @@
 import { motion } from "framer-motion";
 
+import useMedia from "@/app/utils/hooks/useMedia";
+
+import Logo from "@/app/components/Icons/Logo";
 import Pill from "../../Pill";
 
 export const fade = {
@@ -18,6 +21,7 @@ export const fade = {
 };
 
 const Info = () => {
+  const isDesktop = useMedia();
   return (
     <motion.div
       variants={fade}
@@ -66,6 +70,12 @@ const Info = () => {
             <Pill>postgresql</Pill>
           </li>
         </ul>
+
+        {isDesktop && (
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 -translate-y-1/2 text-red-500">
+            <Logo />
+          </div>
+        )}
       </div>
     </motion.div>
   );
