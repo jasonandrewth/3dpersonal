@@ -30,12 +30,12 @@ const Info = () => {
 
       <div className="max-w-4xl mx-auto">
         <p>
-          Jason Thompson is a developer and designer based in Berlin. They
-          create future-oriented web experiences with a strong emphasis on
-          visual identity.
+          Jason Thompson is a developer and designer based in Berlin creating
+          future-oriented web experiences with a strong emphasis on visual
+          identity.
         </p>
 
-        <h2 className="mt-4 mb-4 font-medium">Tech I Like To Use:</h2>
+        <h2 className="mt-4 mb-4 font-medium">Tech:</h2>
 
         <ul className="flex gap-2 flex-wrap">
           <li>
@@ -51,9 +51,6 @@ const Info = () => {
             <Pill>GLSL</Pill>
           </li>
           <li>
-            <Pill>Typescript</Pill>
-          </li>
-          <li>
             <Pill>Node.js</Pill>
           </li>
           <li>
@@ -66,19 +63,7 @@ const Info = () => {
             <Pill>Prisma</Pill>
           </li>
           <li>
-            <Pill>Webpack</Pill>
-          </li>
-          <li>
             <Pill>postgresql</Pill>
-          </li>
-          <li>
-            <Pill>Raspberry Pi</Pill>
-          </li>
-          <li>
-            <Pill>SymPy</Pill>
-          </li>
-          <li>
-            <Pill>Jupyter notebook</Pill>
           </li>
         </ul>
       </div>

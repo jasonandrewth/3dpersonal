@@ -37,7 +37,7 @@ const Nav = () => {
         contrast={displayModal}
         key="contact"
       >
-        contact
+        <a href="mailto:jasonxandrewth@gmail.com">contact</a>
       </ButtonCTA>
 
       <ButtonCTA

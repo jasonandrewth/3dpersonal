@@ -1,4 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
+import * as THREE from "three";
+
 import { TextureLoader, VideoTexture, LinearEncoding } from "three";
 import { useLoader, useFrame } from "@react-three/fiber";
 import { useGLTF } from "@react-three/drei";
@@ -22,18 +24,19 @@ export function Model(props: { tex: VideoTexture | undefined; scale: number }) {
         castShadow
         // receiveShadow
         geometry={nodes.Main.geometry}
-        material={materials["Material.001"]}
+        // material={materials["Material.001"]}
       >
-        {/* <meshStandardMaterial
-          color={0xcccccc}
+        <meshStandardMaterial
+          color={0xef4444}
           //   clearcoat={ballMaterial.clearcoat}
           //   clearcoatRoughness={ballMaterial.cleacoatRoughness}
-          roughness={0.1}
-          metalness={0.8}
+          roughness={0.45}
+          metalness={1.0}
+          side={THREE.DoubleSide}
           //reflectivity={1}
-          //   envMap={props.tex ?? envMap}
+          envMap={props.tex ?? envMap}
           //   map={props.tex ?? envMap}
-        /> */}
+        />
       </mesh>
     </group>
   );

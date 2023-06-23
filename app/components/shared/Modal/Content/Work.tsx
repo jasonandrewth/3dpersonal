@@ -6,6 +6,7 @@ import { useState, useRef } from "react";
 import Project from "./components/Project";
 // Import Swiper React components
 import { Swiper, SwiperSlide, SwiperRef, SwiperProps } from "swiper/react";
+import { Navigation, Pagination } from "swiper";
 
 // Import Swiper styles
 import "swiper/css";
@@ -52,9 +53,11 @@ const Work = () => {
       >
         <Swiper
           // spaceBetween={50}
+          modules={[Navigation, Pagination]}
           className="w-full h-full relative"
           onBeforeInit={(swiper) => (swiperRef.current = swiper)}
           slidesPerView={1}
+          navigation
           loop={false}
         >
           {projects.map((project, idx) => (
@@ -73,14 +76,14 @@ const Work = () => {
         {isHovered && (
           <>
             <button
-              className="fixed z-50 left-4 bottom-1/2 -translate-y-1/2"
+              className="fixed py-8 px-4 z-50 left-4 bottom-1/2 translate-y-1/2 text-5xl hover:text-red-500 transition-all duration-200"
               onClick={() => swiperRef?.current?.slidePrev()}
             >
               {"<-"}
             </button>
 
             <button
-              className="fixed z-50 right-4 bottom-1/2 -translate-y-1/2 "
+              className="fixed p-8 z-50 right-4 bottom-1/2 text-5xl translate-y-1/2 hover:text-red-500 transition-all duration-200"
               onClick={() => swiperRef?.current?.slideNext()}
             >
               {"->"}
