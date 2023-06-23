@@ -37,7 +37,7 @@ const Modal = ({ children }: PropsWithChildren) => {
       <Backdrop onClick={() => closeModal()} />
       <div
         onClick={(e) => e.stopPropagation()}
-        className="text-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 cursor-default overflow-scroll z-20 w-[calc(100vw-80px)] md:w-[calc(100vw-200px)] lg:w-[calc(100vw-320px)] h-[calc(100vh-224px)] max-w-5xl rounded-lg border-2 border-white m-auto flex flex-col"
+        className="text-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 cursor-default overflow-scroll z-20 w-[calc(100vw-80px)] md:w-[calc(100vw-200px)] lg:w-[calc(100vw-320px)] h-[calc(100vh-224px)] max-w-7xl rounded-lg border-2 border-white m-auto flex flex-col"
         // variants={dropIn}
         // initial="hidden"
         // animate="visible"
