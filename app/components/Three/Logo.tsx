@@ -24,16 +24,16 @@ export function Model(props: { tex: VideoTexture | undefined; scale: number }) {
         geometry={nodes.Main.geometry}
         material={materials["Material.001"]}
       >
-        <meshStandardMaterial
-          // color={ballMaterial.color}
-          // clearcoat={ballMaterial.clearcoat}
-          // clearcoatRoughness={ballMaterial.cleacoatRoughness}
+        {/* <meshStandardMaterial
+          color={0xcccccc}
+          //   clearcoat={ballMaterial.clearcoat}
+          //   clearcoatRoughness={ballMaterial.cleacoatRoughness}
           roughness={0.1}
           metalness={0.8}
           //reflectivity={1}
-          envMap={props.tex ?? envMap}
-          map={props.tex ?? envMap}
-        />
+          //   envMap={props.tex ?? envMap}
+          //   map={props.tex ?? envMap}
+        /> */}
       </mesh>
     </group>
   );

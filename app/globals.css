@@ -5,7 +5,7 @@
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start: #ffffff;
-  --background-end: #597997;
+  --background-end: #d0d0d0;
   --app-height: 100%;
 }
 
@@ -16,8 +16,7 @@ body {
   /* min-height: -webkit-fill-available; */
   overflow: hidden;
   color: #000000;
-  /* background: linear-gradient(to bottom, transparent, var(--background-end))
-    var(--background-start); */
+  background: var(--background-end);
 }
 
 .swiper-wrapper {
