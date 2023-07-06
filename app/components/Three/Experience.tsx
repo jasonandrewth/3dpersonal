@@ -1,5 +1,6 @@
 "use client";
 import * as THREE from "three";
+import { MathUtils } from "three";
 
 import { useUI } from "@/app/Context/store";
 import { Canvas, useFrame } from "@react-three/fiber";
@@ -12,14 +13,14 @@ import {
   useState,
   useEffect,
 } from "react";
-import { OrbitControls } from "@react-three/drei";
+// import { OrbitControls } from "@react-three/drei";
 import { motion } from "framer-motion-3d";
 
 //Hooks
 import useMedia from "@/app/utils/hooks/useMedia";
 
 //Model
-import { Model as Object } from "./Object";
+// import { Model as Object } from "./Object";
 import { Model } from "./Logo";
 import Placeholder from "./Placeholder";
 
@@ -27,40 +28,40 @@ export const CanvasWrapper = ({ children }: PropsWithChildren) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [texture, setTexture] = useState<VideoTexture | undefined>();
 
-  useEffect(() => {
-    if (!videoRef.current) return;
+  // useEffect(() => {
+  //   if (!videoRef.current) return;
 
-    const initWebcam = async () => {
-      try {
-        const stream = await navigator.mediaDevices.getUserMedia({
-          video: true,
-          audio: false,
-        });
-        if (videoRef.current) {
-          videoRef.current.srcObject = stream;
-          videoRef.current.play();
+  //   const initWebcam = async () => {
+  //     try {
+  //       const stream = await navigator.mediaDevices.getUserMedia({
+  //         video: true,
+  //         audio: false,
+  //       });
+  //       if (videoRef.current) {
+  //         videoRef.current.srcObject = stream;
+  //         videoRef.current.play();
 
-          const videoTexture = new VideoTexture(videoRef.current);
-          videoTexture.encoding = LinearEncoding;
-          setTexture(videoTexture);
-        }
-      } catch (error) {
-        console.error("Error accessing webcam:", error);
-      }
-    };
+  //         const videoTexture = new VideoTexture(videoRef.current);
+  //         videoTexture.encoding = LinearEncoding;
+  //         setTexture(videoTexture);
+  //       }
+  //     } catch (error) {
+  //       console.error("Error accessing webcam:", error);
+  //     }
+  //   };
 
-    initWebcam();
+  //   initWebcam();
 
-    return () => {
-      if (videoRef.current) {
-        const stream = videoRef.current.srcObject as MediaStream;
-        if (stream) {
-          const tracks = stream.getTracks();
-          tracks.forEach((track) => track.stop());
-        }
-      }
-    };
-  }, []);
+  //   return () => {
+  //     if (videoRef.current) {
+  //       const stream = videoRef.current.srcObject as MediaStream;
+  //       if (stream) {
+  //         const tracks = stream.getTracks();
+  //         tracks.forEach((track) => track.stop());
+  //       }
+  //     }
+  //   };
+  // }, []);
 
   return (
     <div className="fixed top-0 left-0 w-screen h-screen">
@@ -71,6 +72,9 @@ export const CanvasWrapper = ({ children }: PropsWithChildren) => {
           near: 0.1,
           far: 200,
           position: [0, 3, 6],
+        }}
+        onCreated={({ gl }) => {
+          gl.toneMapping = THREE.NoToneMapping;
         }}
       >
         <Experience tex={texture} />
@@ -83,6 +87,7 @@ export const CanvasWrapper = ({ children }: PropsWithChildren) => {
 const Experience = ({ tex }: { tex: VideoTexture | undefined }) => {
   const cubeRef = useRef<MutableRefObject<THREE.Mesh>>();
   const modelRef = useRef<any>();
+  const [hovered, setHovered] = useState(false);
   const { displayModal, modalState, closeModal } = useUI();
   const isDesktop = useMedia();
 
@@ -103,6 +108,10 @@ const Experience = ({ tex }: { tex: VideoTexture | undefined }) => {
       tex.needsUpdate = true;
     }
 
+    modelRef.current.rotation.x = hovered
+      ? MathUtils.lerp(modelRef.current.rotation.x, -Math.PI * 0.25, 0.025)
+      : MathUtils.lerp(modelRef.current.rotation.x, 0, 0.025);
+
     //@ts-ignore
     state.camera.lookAt(modelRef.current!.position);
 
@@ -114,6 +123,7 @@ const Experience = ({ tex }: { tex: VideoTexture | undefined }) => {
     <>
       {/* <OrbitControls makeDefault /> */}
       <directionalLight
+        color={0xffcccc}
         castShadow
         position={[1, 2, 3]}
         intensity={1.5}
@@ -133,11 +143,13 @@ const Experience = ({ tex }: { tex: VideoTexture | undefined }) => {
             stiffness: 500,
           },
         }}
+        onPointerDown={() => setHovered(true)}
+        onPointerUp={() => setHovered(false)}
       >
         <Suspense
           fallback={
             <Placeholder
-              scale={new THREE.Vector3(3)}
+              scale={new THREE.Vector3(2)}
               position={new THREE.Vector3(0)}
             />
           }

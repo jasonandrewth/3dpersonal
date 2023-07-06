@@ -30,11 +30,12 @@ export function Model(props: { tex: VideoTexture | undefined; scale: number }) {
           color={0xef4444}
           //   clearcoat={ballMaterial.clearcoat}
           //   clearcoatRoughness={ballMaterial.cleacoatRoughness}
-          roughness={0.65}
-          metalness={1.0}
+          roughness={0.2}
+          metalness={0.0}
           side={THREE.DoubleSide}
           //reflectivity={1}
           envMap={props.tex ?? envMap}
+          envMapIntensity={0}
           //   map={props.tex ?? envMap}
         />
       </mesh>
