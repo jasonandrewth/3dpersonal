@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import clsx from "clsx";
+import ReactPlayer from "react-player";
 
 import ExternalLink from "../../../ExternalLink/ExternalLink";
 import Backdrop from "../../Backdrop";
@@ -34,12 +35,16 @@ const Project: React.FC<Project> = ({
             src={imageUrl}
             alt={title}
             fill={isDesktop && true}
-            style={{
-              objectFit: "cover",
-            }}
+            // style={{
+            //   objectFit: "cover",
+            // }}
             priority={true}
           />
         ) : (
+          // <ReactPlayer
+          //   className="w-full h-full "
+          //   url="https://www.youtube.com/watch?v=q24KPM02UIk"
+          // />
           <Image
             src={imageUrl}
             alt={title}

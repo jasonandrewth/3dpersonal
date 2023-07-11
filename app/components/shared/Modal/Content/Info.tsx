@@ -39,6 +39,11 @@ const Info = () => {
           identity.
         </p>
 
+        {/* <ul className="flex mt-4 gap-2">
+          <li>GH</li>
+          <li>TW</li>
+        </ul> */}
+
         <h2 className="mt-4 mb-4 font-medium">Tech:</h2>
 
         <ul className="flex gap-2 flex-wrap">

@@ -15,6 +15,13 @@ import { fade } from "./Info";
 
 //PROJECTS
 const projects = [
+  // {
+  //   title: "Keingarten",
+  //   image: "/images/try.gif",
+  //   description:
+  //     "Headless E-Commerce and Community platform for Ditto Nation. Included developing and  deploying a custom Node.js server to update the website with live data from the clients Discord.",
+  //   activeLink: "https://www.ditto-nation.com/",
+  // },
   {
     title: "Ditto Nation",
     image: "/images/ditto.png",
