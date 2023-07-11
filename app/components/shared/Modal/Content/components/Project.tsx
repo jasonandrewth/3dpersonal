@@ -35,9 +35,9 @@ const Project: React.FC<Project> = ({
             src={imageUrl}
             alt={title}
             fill={isDesktop && true}
-            // style={{
-            //   objectFit: "cover",
-            // }}
+            style={{
+              objectFit: "cover",
+            }}
             priority={true}
           />
         ) : (
