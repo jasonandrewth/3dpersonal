@@ -34,7 +34,7 @@ const Info = () => {
       <h1 className="text-center uppercase font-bold text-lg pb-2">info</h1>
 
       <div className="max-w-4xl mx-auto">
-        <p className="text-center lg:text-left">
+        <p>
           Jason Thompson is a developer and designer based in Berlin creating
           future-oriented web experiences with a strong emphasis on visual
           identity.
