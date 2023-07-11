@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 
 import useMedia from "@/app/utils/hooks/useMedia";
 
+import Github from "@/app/components/Icons/Github";
 import Logo from "@/app/components/Icons/Logo";
 import Pill from "../../Pill";
 
@@ -39,10 +40,18 @@ const Info = () => {
           identity.
         </p>
 
-        {/* <ul className="flex mt-4 gap-2">
-          <li>GH</li>
-          <li>TW</li>
-        </ul> */}
+        <ul className="flex mt-4 gap-2">
+          <li>
+            <a
+              href="https://github.com/jasonandrewth"
+              rel="nofollow noopener noreferrer"
+              target="_blank"
+              className="hover:opacity-70 transition-all duration-200"
+            >
+              <Github />
+            </a>
+          </li>
+        </ul>
 
         <h2 className="mt-4 mb-4 font-medium">Tech:</h2>
 
